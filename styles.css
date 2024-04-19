@@ -1,0 +1,139 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    /*background-color: #ffffff*/
+    background-image: url(fd.avif);   
+    animation: moveBackground 30s linear infinite;
+}
+
+/* Define la animación */
+@keyframes moveBackground {
+  0% {
+    /* Define la posición inicial de la imagen */
+    background-position: center;
+  }
+  100% {
+    /* Define la posición final de la imagen */
+    background-position: right bottom;
+  }
+}
+  
+  .title {
+    color: red;
+    font-size: 24px;
+  }
+  
+  header {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(4,203,255,0.6250875350140056) 49%, rgba(0,0,0,1) 100%);
+    padding: 20px;
+  }
+  
+  header h1 {
+    color: #ffffff;
+    font-size: 28px;
+    margin: 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .div1, .div2 {
+    width: 45%; /* Ancho de los divs */
+    height: 510px; /* Altura de los divs */
+    border: 1px solid #ccc; /* Borde minimalista */
+    border-radius: 2%;
+    opacity: 0.9;
+  }
+  
+  .div1 {
+    background: rgb(128,128,128);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(7, 182, 235) 79%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 100%); /* Gradiente para el primer div */
+    position: relative; /* Para posicionar la imagen */
+    text-align: center;
+  }
+  
+  .div1 .img {
+    position: absolute; /* Posiciona la imagen en relación al div1 */
+    top: 73%; /* Posición vertical centrada */
+    left: 30%; /* Posición horizontal centrada */
+    transform: translate(-50%, -50%); /* Centra la imagen */
+    width: 240px; /* Ajusta el ancho máximo de la imagen */
+    max-height: 26%; /* Ajusta la altura máxima de la imagen */
+    border-radius: 20%;
+    animation: heartbeat 6.0s infinite; /* Aplica la animación de latido */
+  }
+  
+  @keyframes heartbeat {
+    0% {
+      transform: scale(1); /* Escala normal */
+    }
+    50% {
+      transform: scale(0.8); /* Escala reducida */
+    }
+    100% {
+      transform: scale(1); /* Vuelve a la escala normal */
+    }
+  }
+
+  ul {
+    list-style-type: none; /* Quita los estilos de lista predeterminados */
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+  }
+  
+  li {
+    margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #000000; /* Color de texto */
+  }
+  
+  .div2 {
+    background: rgb(128,128,128);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(128, 128, 128) 70%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 100%); /* Gradiente para el primer div */
+    position: relative; /* Para posicionar la imagen */
+    text-align: center;
+  }
+  footer {
+    background-color: #333; /* Color de fondo del footer */
+    padding: 2px; /* Espaciado interno del footer */
+    text-align: center; /* Alinear contenido al centro */
+    color: white;
+    opacity: 0.9;
+}
+
+footer a {
+    display: inline-block; /* Hacer que el enlace sea un bloque en línea */
+}
+
+footer img {
+    width: 50px; /* Ancho de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+}
+  /* Estilos para dispositivos móviles */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Cambia la dirección del flexbox a column */
+      align-items: center; /* Centra los elementos en el eje transversal */
+    }
+    h1{
+        font-size: 23px;
+    }
+  
+    .div1, .div2 {
+      width: 90%; /* Ancho de los divs en dispositivos móviles */
+      margin-bottom: 20px; /* Espaciado entre los divs */
+    }
+  
+    .div1 .img {
+      top: 73%; /* Posición vertical centrada */
+      left: 15%; /* Posición horizontal centrada */
+      width: 70%; /* Ancho de la imagen en dispositivos móviles */
+    }
+  }
+  
