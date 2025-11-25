@@ -1,10 +1,18 @@
-/* Estilos generales */
-body {
+/* Reset básico */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /*background-color: #ffffff*/
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: url(fd.avif);   
     animation: moveBackground 30s linear infinite;
+    color: #ffffff; /* Texto blanco */
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
 /* Define la animación */
@@ -18,122 +26,287 @@ body {
     background-position: right bottom;
   }
 }
-  
-  .title {
-    color: red;
-    font-size: 24px;
-  }
-  
-  header {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(4,203,255,0.6250875350140056) 49%, rgba(0,0,0,1) 100%);
-    padding: 20px;
-  }
-  
-  header h1 {
-    color: #ffffff;
-    font-size: 28px;
-    margin: 0;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  .div1, .div2 {
-    width: 45%; /* Ancho de los divs */
-    height: 510px; /* Altura de los divs */
-    border: 1px solid #ccc; /* Borde minimalista */
-    border-radius: 2%;
-    opacity: 0.9;
-  }
-  
-  .div1 {
-    background: rgb(128,128,128);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(7, 182, 235) 79%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 100%); /* Gradiente para el primer div */
-    position: relative; /* Para posicionar la imagen */
-    text-align: center;
-  }
-  
-  .div1 .img {
-    position: absolute; /* Posiciona la imagen en relación al div1 */
-    top: 73%; /* Posición vertical centrada */
-    left: 30%; /* Posición horizontal centrada */
-    transform: translate(-50%, -50%); /* Centra la imagen */
-    width: 240px; /* Ajusta el ancho máximo de la imagen */
-    max-height: 26%; /* Ajusta la altura máxima de la imagen */
-    border-radius: 20%;
-    animation: heartbeat 6.0s infinite; /* Aplica la animación de latido */
-  }
-  
-  @keyframes heartbeat {
-    0% {
-      transform: scale(1); /* Escala normal */
-    }
-    50% {
-      transform: scale(0.8); /* Escala reducida */
-    }
-    100% {
-      transform: scale(1); /* Vuelve a la escala normal */
-    }
-  }
 
-  ul {
-    list-style-type: none; /* Quita los estilos de lista predeterminados */
-    padding: 0; /* Elimina el relleno predeterminado de la lista */
-  }
-  
-  li {
-    margin-bottom: 10px; /* Espaciado entre elementos de la lista */
-    font-size: 16px; /* Tamaño de fuente */
-    color: #000000; /* Color de texto */
-  }
-  
-  .div2 {
-    background: rgb(128,128,128);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(128, 128, 128) 70%, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 100%); /* Gradiente para el primer div */
-    position: relative; /* Para posicionar la imagen */
+/* Header moderno con gradiente */
+header {
+    background: linear-gradient(135deg, rgba(2, 136, 209, 0.9) 0%, rgba(38, 198, 218, 0.9) 100%); /* Gradiente azul fresco semi-transparente */
+    color: #ffffff;
+    padding: 4rem 1rem;
     text-align: center;
-  }
-  footer {
-    background-color: #333; /* Color de fondo del footer */
-    padding: 2px; /* Espaciado interno del footer */
-    text-align: center; /* Alinear contenido al centro */
-    color: white;
-    opacity: 0.9;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
 }
 
-footer a {
-    display: inline-block; /* Hacer que el enlace sea un bloque en línea */
+/* Decoración de fondo en el header (burbujas abstractas) */
+header::before, header::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+header::before {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+}
+
+header::after {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    right: -50px;
+}
+
+header h1 {
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Tarjetas de servicio */
+.div1 {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo muy transparente */
+    backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado para legibilidad */
+    border-radius: 12px;
+    /* Enmarcado de las cajas */
+    border: 2px solid rgba(79, 195, 247, 0.5); /* Borde azul claro semi-transparente */
+    box-shadow: 0 0 0 4px rgba(79, 195, 247, 0.1), 0 4px 15px rgba(0,0,0,0.1); /* Efecto de doble borde/resplandor */
+    padding: 2rem;
+    flex: 1 1 300px; /* Flexible: base de 300px, puede crecer y encogerse */
+    max-width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Para que estén por encima de las burbujas */
+}
+
+.div1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.div1 h1 {
+    font-size: 1.5rem;
+    color: #ffffff; /* Blanco */
+    margin-bottom: 0.5rem;
+    font-weight: 700; /* Texto más grueso */
+    text-transform: uppercase; /* Mayúsculas para destacar */
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra para legibilidad */
+}
+
+.div1 p {
+    color: #f0f0f0; /* Blanco suave */
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600; /* Texto un poco más grueso */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Sombra para legibilidad */
+}
+
+/* Imágenes dentro de las tarjetas */
+.div1 .img {
+    width: 100%;
+    max-width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%; /* Imagen circular */
+    margin-bottom: 1.5rem;
+    border: 4px solid #eef2f7;
+}
+
+/* Listas de precios */
+ul {
+    list-style-type: none;
+    width: 100%;
+    text-align: left;
+}
+
+li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria blanca semi-transparente */
+    color: #ffffff; /* Texto blanco */
+    font-size: 1rem;
+    font-weight: 500; /* Texto con más peso */
+    display: flex;
+    justify-content: space-between;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Sombra para legibilidad */
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo muy transparente */
+    backdrop-filter: blur(5px);
+    color: #ffffff; /* Texto blanco */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+footer p {
+    margin-bottom: 1rem;
 }
 
 footer img {
-    width: 50px; /* Ancho de la imagen */
-    height: auto; /* Altura automática para mantener la proporción */
+    width: 70px;
+    height: auto;
+    transition: transform 0.2s;
 }
-  /* Estilos para dispositivos móviles */
-  @media (max-width: 768px) {
+
+footer img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
     .container {
-      flex-direction: column; /* Cambia la dirección del flexbox a column */
-      align-items: center; /* Centra los elementos en el eje transversal */
+        gap: 1.5rem;
     }
-    h1{
-        font-size: 23px;
+}
+
+/* Animación de Burbujas de Fondo */
+.bubbles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Detrás del contenido */
+    overflow: hidden;
+    pointer-events: none; /* Permite hacer clic a través de ellas */
+}
+
+.bubbles span {
+    position: absolute;
+    bottom: -50px;
+    background: transparent;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6); /* Borde de burbuja */
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.4); /* Brillo interno */
+    animation: rise 15s infinite linear;
+}
+
+.bubbles span:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    left: 10%;
+    animation-duration: 8s;
+}
+
+.bubbles span:nth-child(2) {
+    width: 20px;
+    height: 20px;
+    left: 20%;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+.bubbles span:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    left: 35%;
+    animation-duration: 10s;
+    animation-delay: 2s;
+}
+
+.bubbles span:nth-child(4) {
+    width: 80px;
+    height: 80px;
+    left: 50%;
+    animation-duration: 11s;
+    animation-delay: 0s;
+}
+
+.bubbles span:nth-child(5) {
+    width: 35px;
+    height: 35px;
+    left: 55%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
+
+.bubbles span:nth-child(6) {
+    width: 45px;
+    height: 45px;
+    left: 65%;
+    animation-duration: 8s;
+    animation-delay: 3s;
+}
+
+.bubbles span:nth-child(7) {
+    width: 90px;
+    height: 90px;
+    left: 70%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.bubbles span:nth-child(8) {
+    width: 25px;
+    height: 25px;
+    left: 80%;
+    animation-duration: 6s;
+    animation-delay: 2s;
+}
+
+.bubbles span:nth-child(9) {
+    width: 15px;
+    height: 15px;
+    left: 70%;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+.bubbles span:nth-child(10) {
+    width: 90px;
+    height: 90px;
+    left: 25%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
     }
-  
-    .div1, .div2 {
-      width: 90%; /* Ancho de los divs en dispositivos móviles */
-      margin-bottom: 20px; /* Espaciado entre los divs */
+    10% {
+        opacity: 1;
     }
-  
-    .div1 .img {
-      top: 73%; /* Posición vertical centrada */
-      left: 15%; /* Posición horizontal centrada */
-      width: 70%; /* Ancho de la imagen en dispositivos móviles */
+    100% {
+        transform: translateY(-1000px) scale(1.5);
+        opacity: 0;
     }
-  }
-  
+}
